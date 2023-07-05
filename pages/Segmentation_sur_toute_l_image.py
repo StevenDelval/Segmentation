@@ -10,17 +10,12 @@ from st_pages import Page, show_pages, add_page_title
 sam_checkpoint = "./sam_vit_b_01ec64.pth"
 model_type = "vit_b"
 torch.cuda.empty_cache()
-
-try :
+if torch.cuda.is_available():
     device = "cuda"
-
-    sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
-    sam.to(device=device)
-except:
+else:
     device = "cpu"
-
-    sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
-    sam.to(device=device)
+sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
+sam.to(device=device)
 
 mask_generator = SamAutomaticMaskGenerator(sam)
 
@@ -57,7 +52,7 @@ if image is not None:
     fig, ax = plt.subplots()
         
     # Display the image
-    ax.imshow(image)
+    ax.imshow(image_)
     ax.axis('off')
     show_anns(masks)
     # Show the figure using Streamlit
