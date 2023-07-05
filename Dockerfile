@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN apt-get -y update && apt-get -y install git
+RUN apt-get -y update && apt-get -y install git ffmpeg libsm6 libxext6
 
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt &&\
