@@ -15,7 +15,7 @@ show_pages(
     [
         Page("app.py", "Home"),
         Page("pages/Segmentation_sur_toute_l_image.py", "Segmentation sur toute l'image"),
-        Page("pages/Segmentation_avec_des_point.py", "Segmentation avec des point"),
+        Page("pages/Segmentation_avec_des_points.py", "Segmentation avec des points"),
         
         
     ]
