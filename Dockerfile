@@ -10,6 +10,6 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt &&\
     python install_model.py
 
-EXPOSE 8501
+EXPOSE 80
 
-CMD ["streamlit", "run", "app.py","--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "app.py","--server.port=80", "--server.address=0.0.0.0"]
